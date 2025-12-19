@@ -1,0 +1,5 @@
+pandas
+pendulum
+nba_api
+boto3
+s3fs
