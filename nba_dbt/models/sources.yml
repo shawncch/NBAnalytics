@@ -1,0 +1,17 @@
+sources:
+  - name: nba_raw
+    database: AwsDataCatalog
+    schema: nbanalytics
+    tables:
+      - name: gamelogs
+        columns:
+          - name: season_id
+            data_tests:
+              - check_season_ids:
+                  name: gamelogs_seasonid_check
+                  config:
+                    severity: warn
+
+      - name: plays
+        
+      - name: sample_transactions
