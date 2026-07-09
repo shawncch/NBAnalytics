@@ -50,7 +50,7 @@ with raw_gamelogs as (
     from {{ source('nba_raw', 'gamelogs') }}
     where substr(cast(season_id as varchar), 1, 1) in ('2','4','5')
     {% if is_incremental() %}
-      and game_date >= coalesce({{ max_date }}, '1900-01-01')
+      and game_date >= coalesce('{{ max_date }}', '1900-01-01')
     {% endif %}
 
 {# 

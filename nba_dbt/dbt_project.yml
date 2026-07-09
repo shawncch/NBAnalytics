@@ -38,5 +38,9 @@ models:
       +materialized: view
       +schema: silver
 
+    gold:
+      +materialized: table
+    +schema: gold 
+
     forlooptest:
       +materialized: view
