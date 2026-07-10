@@ -103,11 +103,11 @@ with DAG(
         python_callable= retrieve_plays_for_day
     )
     
-    # trigger_glue_crawler = GlueCrawlerOperator(
-    #     task_id = 'trigger_gamelogs_crawler',
-    #     config={'Name':'nba_plays'}
-    # )
+    trigger_glue_crawler = GlueCrawlerOperator(
+        task_id = 'trigger_gamelogs_crawler',
+        config={'Name':'nba_plays'}
+    )
     
 
-    # get_day_games >> get_plays >> trigger_glue_crawler
-    get_day_games >> get_plays
+    get_day_games >> get_plays >> trigger_glue_crawler
+    

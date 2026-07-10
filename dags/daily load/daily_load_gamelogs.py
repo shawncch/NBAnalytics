@@ -77,10 +77,10 @@ with DAG(
         python_callable = write_to_s3
     )
 
-    # trigger_glue_crawler = GlueCrawlerOperator(
-    #     task_id = 'trigger_gamelogs_crawler',
-    #     config={'Name':'nba_gamelogs-copy'}
-    # )
+    trigger_glue_crawler = GlueCrawlerOperator(
+        task_id = 'trigger_gamelogs_crawler',
+        config={'Name':'nba_gamelogs-copy'}
+    )
     
-    # get_game_logs >> write_to_s3 >> trigger_glue_crawler
-    get_game_logs >> write_to_s3 
+    get_game_logs >> write_to_s3 >> trigger_glue_crawler
+    
